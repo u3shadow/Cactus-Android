@@ -1,4 +1,4 @@
-/*package com.u3coding.cactus
+package com.u3coding.cactus
 
 import android.app.Activity
 import android.os.Bundle
@@ -32,14 +32,14 @@ class SignupActivity:BaseActivity(),View.OnClickListener{
         initLis()
     }
     override fun initView(){
-        userNameEt = findViewById(R.id.username_et)as EditText
-        pwEt = findViewById(R.id.psw_et)as EditText
-        pwvEt = findViewById(R.id.psw_confirm_et)as EditText
-        emailEt = findViewById(R.id.email_et)as EditText
-        signupBt=findViewById(R.id.signup_bt)as Button
+        userNameEt = findViewById(R.id.username_et)
+        pwEt = findViewById(R.id.psw_et)
+        pwvEt = findViewById(R.id.psw_confirm_et)
+        emailEt = findViewById(R.id.email_et)
+        signupBt=findViewById(R.id.signup_bt)
     }
 
     override fun initLis() {
         signupBt!!.setOnClickListener(this)
     }
-}*/
+}

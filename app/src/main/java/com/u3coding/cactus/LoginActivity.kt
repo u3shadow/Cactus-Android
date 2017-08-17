@@ -1,4 +1,4 @@
-/*package com.u3coding.cactus
+package com.u3coding.cactus
 
 import android.app.Activity
 import android.content.Intent
@@ -8,9 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 
-/**
- * Created by u3 on 17-8-14.
- */
 class LoginActivity: Activity(), View.OnClickListener{
     override fun onClick(view: View?) {
         when (view!!.id){
@@ -48,14 +45,14 @@ class LoginActivity: Activity(), View.OnClickListener{
 
     }
     fun initView(){
-        userNameEt = findViewById(R.id.username_et) as EditText
-        pwEt =  findViewById(R.id.pw_et)as EditText
-        loginBt = findViewById(R.id.login_bt)as Button
-        signupBt = findViewById(R.id.signup_bt)as Button
+        userNameEt = findViewById(R.id.username_et)
+        pwEt =  findViewById(R.id.pw_et)
+        loginBt = findViewById(R.id.login_bt)
+        signupBt = findViewById(R.id.signup_bt)
     }
     fun initLis(){
         loginBt!!.setOnClickListener(this)
         loginBt!!.setOnClickListener(this)
     }
 
-}*/
+}

@@ -7,4 +7,5 @@
     <string name="wrong_login_info">Login info is wrong</string>
     <string name="no_user">No that user</string>
     <string name="api_error">Server error, please try again later</string>
+    <string name="finish">Finish</string>
 </resources>

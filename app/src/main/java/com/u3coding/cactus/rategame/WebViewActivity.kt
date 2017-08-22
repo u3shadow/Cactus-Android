@@ -15,8 +15,7 @@ import com.u3coding.cactus.base.BaseActivity
 import com.u3coding.cactus.R
 import android.graphics.PorterDuff
 import android.graphics.drawable.LayerDrawable
-
-
+import android.webkit.WebResourceRequest
 
 
 open class WebViewActivity: BaseActivity(),View.OnClickListener{
@@ -26,7 +25,6 @@ open class WebViewActivity: BaseActivity(),View.OnClickListener{
     private var flipper:ViewFlipper?=null
     private val baseUrl:String = "http://store.steampowered.com/app/"
     private var nextBt:Button? = null
-    private var preBt:Button? = null
     private var passBt:Button? = null
     private var ratBar:RatingBar?=null
     private var rateMap:HashMap<Int, Int> = hashMapOf()
@@ -46,7 +44,6 @@ open class WebViewActivity: BaseActivity(),View.OnClickListener{
     override fun initView() {
         flipper = findViewById(R.id.flipper)
         nextBt = findViewById(R.id.next_bt)
-        preBt = findViewById(R.id.pre_bt)
         passBt = findViewById(R.id.pass_bt)
         ratBar = findViewById(R.id.rating_bar)
     }
@@ -56,7 +53,6 @@ open class WebViewActivity: BaseActivity(),View.OnClickListener{
             flipper!!.addView(addWebView(baseUrl+item));
         }
         nextBt!!.setOnClickListener(this)
-        preBt!!.setOnClickListener(this)
         passBt!!.setOnClickListener(this)
 
     }
@@ -64,23 +60,28 @@ open class WebViewActivity: BaseActivity(),View.OnClickListener{
         when (view!!.id){
             nextBt!!.id ->showNext(ratBar!!.rating)
             passBt!!.id -> showNext(0 as Float)
-            preBt!!.id -> showPre()
         }
     }
     fun showNext(score:Float){
         var start = score.toInt()
         rateMap.put(idList.get(index),start as Int)
         index++
-        if (index > 10)
-            index = 0
-        Toast.makeText(this,""+flipper!!.childCount,Toast.LENGTH_LONG).show()
+        if (index == 9){
+            nextBt?.setText(R.string.finish)
+            nextBt?.setOnClickListener(object :View.OnClickListener{
+                override fun onClick(view: View?) {
+                    getGameApi()
+                }
+
+            })
+        }
+        //change to finish
         flipper!!.showNext()
+        var web = flipper!!.currentView as WebView
+        web.reload()
     }
-    fun showPre(){
-        index--
-        if (index < 0)
-            index = 9
-        flipper!!.showPrevious()
+    fun getGameApi(){
+
     }
     private fun addWebView(url: String): WebView {
 
@@ -89,18 +90,9 @@ open class WebViewActivity: BaseActivity(),View.OnClickListener{
         myWebView.webChromeClient = WebChromeClient()
         w.setPluginState(PluginState.ON)
         w.javaScriptEnabled = true
-        myWebView!!.loadUrl(url)
-        myWebView!!.setWebViewClient(object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                view.loadUrl(url)
-                return true
-            }
-
-            override fun onPageFinished(view: WebView?, url: String?) {
-                if(url!=null){
-                }
-            }
-        })
+        var m = MyWebClient(this)
+        myWebView!!.setWebViewClient(m)
+        myWebView.loadUrl(url)
         return myWebView
     }
 }

@@ -3,44 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+    <ImageView
+        android:src="@drawable/loginback"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <FrameLayout
+        android:id="@+id/main_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ViewFlipper
         android:id="@+id/flipper"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ViewFlipper>
 
-    <Button
-        android:id="@+id/pass_bt"
-        android:text="Pass"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:textColor="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/pre_bt"
-        android:text="prev"
-        android:layout_gravity="bottom|left"
-        android:layout_marginLeft="10dp"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_marginBottom="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/next_bt"
-        android:text="next"
-        android:textSize="20sp"
-        android:background="@android:color/holo_blue_bright"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-  <RatingBar
+
+        <RatingBar
         android:id="@+id/rating_bar"
         android:numStars="5"
         android:stepSize="1"
@@ -49,4 +28,44 @@
         android:layout_marginBottom="80dp"
         android:layout_width="wrap_content"
         android:layout_height="50dp" />
+ </FrameLayout>
+    <ProgressBar
+        android:id="@+id/pro_pb"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <TextView
+        android:id="@+id/loading_tv"
+        android:layout_gravity="center"
+        android:layout_marginBottom="150dp"
+        android:text="Loading game"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+     <Button
+        android:id="@+id/pass_bt"
+         android:textSize="20sp"
+        android:text="Pass"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom|left"
+        android:textColor="@android:color/white"
+         android:layout_marginLeft="20dp"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/next_bt"
+        android:text="next"
+        android:textSize="20sp"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="20dp"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content" />
+
 </FrameLayout>

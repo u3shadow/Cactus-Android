@@ -4,4 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="not_enough_login_info">Username or password is empyt!</string>
+    <string name="wrong_login_info">Login info is wrong</string>
+    <string name="no_user">No that user</string>
+    <string name="api_error">Server error, please try again later</string>
 </resources>

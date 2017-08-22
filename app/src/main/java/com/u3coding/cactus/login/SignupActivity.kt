@@ -1,15 +1,16 @@
-package com.u3coding.cactus
+package com.u3coding.cactus.login
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import com.u3coding.cactus.base.BaseActivity
+import com.u3coding.cactus.R
 
 /**
  * Created by u3 on 17-8-16.
  */
-class SignupActivity:BaseActivity(),View.OnClickListener{
+class SignupActivity: BaseActivity(),View.OnClickListener{
 
 
     var userNameEt:EditText?= null
@@ -24,9 +25,11 @@ class SignupActivity:BaseActivity(),View.OnClickListener{
     }
     fun signupClick(){
         //api
+
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.window.statusBarColor = resources.getColor(R.color.holo_blue_dark)
         setContentView(R.layout.signup_activity)
         initView()
         initLis()

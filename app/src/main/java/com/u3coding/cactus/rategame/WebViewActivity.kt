@@ -1,6 +1,6 @@
-package com.u3coding.cactus
+package com.u3coding.cactus.rategame
+import android.graphics.Bitmap
 import android.graphics.Color
-import android.media.Rating
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
@@ -11,9 +11,15 @@ import android.webkit.WebChromeClient
 import android.widget.Button
 import android.widget.RatingBar
 import android.widget.Toast
+import com.u3coding.cactus.base.BaseActivity
+import com.u3coding.cactus.R
+import android.graphics.PorterDuff
+import android.graphics.drawable.LayerDrawable
 
 
-open class WebViewActivity:BaseActivity(),View.OnClickListener{
+
+
+open class WebViewActivity: BaseActivity(),View.OnClickListener{
 
     val IDLIStNAME:String="idlist"
     val SIDLIStNAME:String="sidlist"
@@ -74,6 +80,7 @@ open class WebViewActivity:BaseActivity(),View.OnClickListener{
         index--
         if (index < 0)
             index = 9
+        flipper!!.showPrevious()
     }
     private fun addWebView(url: String): WebView {
 
@@ -87,6 +94,11 @@ open class WebViewActivity:BaseActivity(),View.OnClickListener{
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                 view.loadUrl(url)
                 return true
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                if(url!=null){
+                }
             }
         })
         return myWebView

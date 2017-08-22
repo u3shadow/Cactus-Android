@@ -3,17 +3,20 @@ package com.u3coding.cactus
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import retrofit2.Callback
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
+import com.u3coding.cactus.api.Api
+import com.u3coding.cactus.api.LoginBean
+import com.u3coding.cactus.base.BaseActivity
+import com.u3coding.cactus.login.LoginActivity
+import com.u3coding.cactus.rategame.WebViewActivity
 import retrofit2.Call
 import retrofit2.Response
 
 /**
  * Created by u3 on 17-8-17.
  */
-class TestActivity:BaseActivity(),View.OnClickListener{
+class TestActivity: BaseActivity(),View.OnClickListener{
     override fun onClick(p0: View?) {
         test()
     }
@@ -30,8 +33,8 @@ class TestActivity:BaseActivity(),View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.test)
         var list :ArrayList<Int> = ArrayList()
-        list.add(632920)
-        list.add(342350)
+        list.add(244210)
+        list.add(271590)
         var idlist :ArrayList<Int> = ArrayList()
         idlist.add(1)
         idlist.add(4543)
@@ -40,7 +43,7 @@ class TestActivity:BaseActivity(),View.OnClickListener{
         mintent.putExtra(SIDLIStNAME,list)
         mintent.putExtra(IDLIStNAME,idlist)
 
-        //startActivity(mintent)
+        startActivity(mintent)
         var test : Button= findViewById(R.id.test)
         test.setOnClickListener(this)
 

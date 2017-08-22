@@ -1,4 +1,4 @@
-package com.u3coding.cactus
+package com.u3coding.cactus.api
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import retrofit2.Retrofit
@@ -20,7 +20,7 @@ class Api{
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    fun getService():ApiInterface{
+    fun getService(): ApiInterface {
         var service = retrofit.create(ApiInterface::class.java)
         return service
     }

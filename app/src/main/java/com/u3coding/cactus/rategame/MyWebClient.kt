@@ -25,13 +25,13 @@ class MyWebClient(var activity:Activity):WebViewClient(){
     }
 
     override fun onPageFinished(view: WebView?, url: String?) {
+        view?.scrollTo(0,1100)
         var pb = activity.findViewById<ProgressBar>(R.id.pro_pb)
         pb.visibility = View.INVISIBLE
         var fl = activity.findViewById<FrameLayout>(R.id.main_fl)
         fl.visibility = View.VISIBLE
         var tv = activity.findViewById<TextView>(R.id.loading_tv)
         tv.visibility = View.INVISIBLE
-        view?.scrollTo(0,1100)
     }
 
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {

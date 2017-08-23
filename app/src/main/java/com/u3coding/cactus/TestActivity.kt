@@ -8,8 +8,6 @@ import android.widget.Button
 import com.u3coding.cactus.api.Api
 import com.u3coding.cactus.api.LoginBean
 import com.u3coding.cactus.base.BaseActivity
-import com.u3coding.cactus.login.LoginActivity
-import com.u3coding.cactus.rategame.WebViewActivity
 import retrofit2.Call
 import retrofit2.Response
 
@@ -54,12 +52,12 @@ class TestActivity: BaseActivity(),View.OnClickListener{
         idlist.add(1387)
         idlist.add(8606)
         idlist.add(5297)
-        var mintent: Intent = Intent(this,WebViewActivity::class.java)
+/*        var mintent: Intent = Intent(this,WebViewActivity::class.java)
 
         mintent.putExtra(SIDLIStNAME,list)
         mintent.putExtra(IDLIStNAME,idlist)
 
-        startActivity(mintent)
+        startActivity(mintent)*/
         var test : Button= findViewById(R.id.test)
         test.setOnClickListener(this)
 

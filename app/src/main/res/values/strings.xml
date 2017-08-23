@@ -19,4 +19,5 @@
     <string name="wrong_pw">Password not equal</string>
     <string name="not_enough_info">Please fill all table</string>
     <string name="signup_success">Sign up success please login</string>
+    <string name="findgame">FindGame</string>
 </resources>

@@ -13,7 +13,7 @@ interface  ApiInterface{
     fun login(@Field("name")name:String, @Field("psw")psw:String): Call<LoginBean>
     @FormUrlEncoded
     @POST("getgames")
-    fun getGames(@Field("id") id:String): Call<List<GetGameBean>>
+    fun getGames(@Field("id") id:String): Call<GetGameBean>
     @FormUrlEncoded
     @POST("signup")
     fun signup(@Field("name")name: String,@Field("psw")psw:String,@Field("email")email:String): Call<SignupBean>

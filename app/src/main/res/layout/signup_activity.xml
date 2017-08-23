@@ -45,6 +45,7 @@
         android:layout_below="@+id/username_et"
         android:textColorHint="#fff"
         android:hint="password"
+        android:inputType="textPassword"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:textColor="#fff"
@@ -59,6 +60,7 @@
         android:drawableRight="@drawable/confirmpsw"
         android:textColorHint="#fff"
         android:textColor="#fff"
+        android:inputType="textPassword"
         android:hint="confirm password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -14,14 +14,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".rategame.WebViewActivity" />
-        <activity android:name=".login.LoginActivity" android:theme="@style/Theme.App.Base"/>
-        <activity android:name=".login.SignupActivity" android:theme="@style/Theme.App.Base"/>
-        <activity android:name=".TestActivity">
-            <intent-filter>
+        <activity
+            android:name=".login.LoginActivity"
+            android:theme="@style/Theme.App.Base" >
+         <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".login.SignupActivity"
+            android:theme="@style/Theme.App.Base" />
+        <activity android:name=".TestActivity">
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
     </application>
 

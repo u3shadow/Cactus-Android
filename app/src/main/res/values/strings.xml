@@ -8,4 +8,15 @@
     <string name="no_user">No that user</string>
     <string name="api_error">Server error, please try again later</string>
     <string name="finish">Finish</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="name_exist">Name is used by other</string>
+    <string name="email_exist">Email is used by other</string>
+    <string name="wrong_pw">Password not equal</string>
+    <string name="not_enough_info">Please fill all table</string>
+    <string name="signup_success">Sign up success please login</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.u3coding.cactus.login
 
-import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -9,13 +8,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.u3coding.cactus.MainActivity
 import com.u3coding.cactus.api.Api
 import com.u3coding.cactus.api.LoginBean
 import com.u3coding.cactus.R
+import com.u3coding.cactus.base.BaseActivity
 import retrofit2.Call
 import retrofit2.Response
 
-class LoginActivity: Activity(), View.OnClickListener{
+class LoginActivity: BaseActivity(), View.OnClickListener{
 
     private var userNameEt:EditText? =  null
     private var pwEt:EditText? = null
@@ -27,17 +28,21 @@ class LoginActivity: Activity(), View.OnClickListener{
         this.window.statusBarColor = resources.getColor(R.color.holo_blue_dark)
         setContentView(R.layout.login_activity)
         pref = getSharedPreferences("login",1)
+        if(!pref?.getString("userid","-1").equals("-1")){
+            jumpToMain()
+            finish()
+        }
         initView()
         initLis()
 
     }
-    fun initView(){
+    override fun initView(){
         userNameEt = findViewById(R.id.username_et)
         pwEt =  findViewById(R.id.pw_et)
         loginBt = findViewById(R.id.login_bt)
         signupBt = findViewById(R.id.signup_tv)
     }
-    fun initLis(){
+    override fun initLis(){
         loginBt!!.setOnClickListener(this)
         signupBt!!.setOnClickListener(this)
     }
@@ -77,8 +82,8 @@ class LoginActivity: Activity(), View.OnClickListener{
                            pref?.edit()?.putString("userid",id)?.apply()
                            jumpToMain()
                        }
-                       230 -> errorToast(getString(R.string.wrong_login_info))
-                       231 -> errorToast(getString(R.string.api_error))
+                       230 -> showToast(getString(R.string.wrong_login_info))
+                       231 -> showToast(getString(R.string.api_error))
                    }
                }
             }
@@ -89,11 +94,9 @@ class LoginActivity: Activity(), View.OnClickListener{
         })
 
     }
-    fun errorToast(errors:String){
-        Toast.makeText(this,errors,Toast.LENGTH_LONG).show()
-    }
+
     fun jumpToMain(){
-      // var mIntent:Intent = Intent(this,MainActivity::class)
-       //startActivity(mIntent)
+      var mIntent = Intent(this,MainActivity::class.java)
+      startActivity(mIntent)
     }
 }

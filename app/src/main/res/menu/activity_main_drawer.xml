@@ -8,7 +8,7 @@
             android:title="Find Game" />
         <item
             android:id="@+id/nav_findgame1"
-            android:icon="@drawable/gamepad"
+            android:icon="@drawable/result"
             android:title="Recent Result" />
     </group>
 

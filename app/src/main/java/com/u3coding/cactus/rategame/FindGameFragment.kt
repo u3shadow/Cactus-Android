@@ -29,6 +29,7 @@ class FindGameFragment : BaseFragment(),View.OnClickListener {
     private var nextBt: Button? = null
     private var passBt:Button? = null
     private var ratBar: RatingBar?=null
+    private var finishBt: Button?= null
     private var rateMap:HashMap<Int, Int> = hashMapOf()
     private var idList = listOf<Int>()
     private var sidList= listOf<Int>()
@@ -43,10 +44,12 @@ class FindGameFragment : BaseFragment(),View.OnClickListener {
        return view
     }
 
+
     override fun initView(view:View) {
         flipper = view.findViewById(R.id.flipper)
         nextBt = view.findViewById(R.id.next_bt)
         passBt = view.findViewById(R.id.pass_bt)
+        finishBt = view.findViewById(R.id.finish_bt)
         ratBar = view.findViewById(R.id.rating_bar)
     }
 
@@ -69,10 +72,13 @@ class FindGameFragment : BaseFragment(),View.OnClickListener {
         rateMap.put(idList.get(index),start as Int)
         index++
         if (index == 9){
-            nextBt?.setText(R.string.finish)
-            nextBt?.setOnClickListener(object :View.OnClickListener{
+            nextBt?.visibility= View.INVISIBLE
+            passBt?.visibility= View.INVISIBLE
+            finishBt?.setOnClickListener(object :View.OnClickListener{
                 override fun onClick(view: View?) {
-                //getGameApi()
+                var start = ratBar!!.rating.toInt()
+                rateMap.put(idList.get(index),start as Int)
+                calGameApi()
                 }
 
             })
@@ -81,6 +87,9 @@ class FindGameFragment : BaseFragment(),View.OnClickListener {
         flipper!!.showNext()
         var web = flipper!!.currentView as WebView
         web.reload()
+    }
+    fun calGameApi(){
+
     }
     fun getGameApi(){
         var api = Api()

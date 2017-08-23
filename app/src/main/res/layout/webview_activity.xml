@@ -67,5 +67,15 @@
         android:layout_marginRight="20dp"
         android:layout_width="130dp"
         android:layout_height="wrap_content" />
-
+ <Button
+        android:id="@+id/finish_bt"
+        android:text="finish"
+        android:textSize="20sp"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </FrameLayout>

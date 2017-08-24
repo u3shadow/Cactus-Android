@@ -1,0 +1,70 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ImageView
+        android:src="@drawable/loginback"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <FrameLayout
+        android:id="@+id/main_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <WebView
+        android:id="@+id/web_wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </WebView>
+
+
+        <RatingBar
+        android:id="@+id/rating_bar"
+        android:numStars="5"
+        android:stepSize="1"
+        android:rating="5"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp" />
+ </FrameLayout>
+    <ProgressBar
+        android:id="@+id/pro_pb"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <TextView
+        android:id="@+id/loading_tv"
+        android:layout_gravity="center"
+        android:layout_marginBottom="150dp"
+        android:text="Loading game"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/next_bt"
+        android:text="next"
+        android:textSize="20sp"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="@android:color/white"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+ <Button
+        android:id="@+id/finish_bt"
+        android:text="finish"
+        android:textSize="20sp"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="20dp"
+     android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</FrameLayout>

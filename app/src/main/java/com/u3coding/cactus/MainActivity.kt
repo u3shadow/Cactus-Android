@@ -13,15 +13,17 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import com.u3coding.cactus.login.LoginActivity
-import android.R.id.toggle
 import android.app.Fragment
 import android.view.View
-import com.u3coding.cactus.rategame.FindGameFragment
+import android.widget.Toast
+import com.u3coding.cactus.game.FindGameFragment
+import com.u3coding.cactus.game.ShowGameFragment
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     var pref:SharedPreferences? = null
     var findGameFragment: Fragment?=null
+    var resultFragment: Fragment?=null
     var fab:FloatingActionButton?=null
     var toolbar:Toolbar?=null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,6 +63,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun initFragment() {
         findGameFragment = FindGameFragment()
+        resultFragment = ShowGameFragment()
         //setTimeFragment = SetTimeFragment()
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_layout, findGameFragment)
@@ -70,18 +73,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val id = item.itemId
-
+        val fragmentTransaction = fragmentManager.beginTransaction()
         if (id == R.id.nav_findgame) {
-            val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.main_layout, findGameFragment)
             fragmentTransaction.commit()
-            fab!!.visibility = View.INVISIBLE
-        } else if (id == R.id.nav_logout) {
+        }else if (id == R.id.nav_result) {
+            if(pref?.getString("sid","-1").equals("-1")){
+                Toast.makeText(this,getString(R.string.noresultnow),Toast.LENGTH_LONG).show()
+            }else{
+            fragmentTransaction.replace(R.id.main_layout, resultFragment)
+            fragmentTransaction.commit()
+            }
+        }else if (id == R.id.nav_logout) {
             pref?.edit()?.remove("userid")?.apply()
+            pref?.edit()?.remove("sid")?.apply()
             var mIntent = Intent(this,LoginActivity::class.java)
             startActivity(mIntent)
         }
-
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
         drawer.closeDrawer(GravityCompat.START)
         return true

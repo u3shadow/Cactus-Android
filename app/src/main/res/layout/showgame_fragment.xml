@@ -18,17 +18,7 @@
         android:layout_height="match_parent">
     </WebView>
 
-
-        <RatingBar
-        android:id="@+id/rating_bar"
-        android:numStars="5"
-        android:stepSize="1"
-        android:rating="5"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="80dp"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp" />
- </FrameLayout>
+    </FrameLayout>
     <ProgressBar
         android:id="@+id/pro_pb"
         android:visibility="invisible"
@@ -44,17 +34,6 @@
         android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-     <Button
-        android:id="@+id/pass_bt"
-         android:textSize="20sp"
-        android:text="Pass"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="bottom|left"
-        android:textColor="@android:color/white"
-         android:layout_marginLeft="20dp"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/next_bt"
@@ -62,21 +41,9 @@
         android:textSize="20sp"
         android:background="@android:color/holo_blue_bright"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="20dp"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content" />
- <Button
-        android:id="@+id/finish_bt"
-        android:text="finish"
-        android:textSize="20sp"
-        android:background="@android:color/holo_blue_bright"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="bottom"
         android:layout_margin="20dp"
-     android:visibility="invisible"
+        android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-</FrameLayout>
+
+    </FrameLayout>

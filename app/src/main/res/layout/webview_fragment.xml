@@ -12,11 +12,11 @@
         android:id="@+id/main_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <ViewFlipper
-        android:id="@+id/flipper"
+    <WebView
+        android:id="@+id/web_wv"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </ViewFlipper>
+    </WebView>
 
 
         <RatingBar
@@ -76,6 +76,7 @@
         android:layout_marginBottom="20dp"
         android:layout_gravity="bottom"
         android:layout_margin="20dp"
+     android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </FrameLayout>

@@ -15,6 +15,9 @@ interface  ApiInterface{
     @POST("getgames")
     fun getGames(@Field("id") id:String): Call<GetGameBean>
     @FormUrlEncoded
+    @POST("calrate")
+    fun calGame(@Field("id") id:String,@Field("rates") rate:String): Call<CalGameBean>
+    @FormUrlEncoded
     @POST("signup")
     fun signup(@Field("name")name: String,@Field("psw")psw:String,@Field("email")email:String): Call<SignupBean>
 }

@@ -18,6 +18,7 @@ import com.u3coding.cactus.base.BaseFragment
  */
 class ShowGameFragment : BaseFragment(), View.OnClickListener {
     private var webView: WebView?=null
+    private var foWeb: WebView?=null
     private val baseUrl:String = "http://store.steampowered.com/app/"
     private var nextBt: Button? = null
     private var sidList= listOf<Int>()
@@ -35,16 +36,23 @@ class ShowGameFragment : BaseFragment(), View.OnClickListener {
     }
     override fun initView(view: View) {
         webView = view.findViewById(R.id.web_wv)
+        foWeb = view.findViewById(R.id.fore_wv)
         nextBt = view.findViewById(R.id.next_bt)
     }
 
     override fun initLis() {
         webView = initWebView(this!!.webView!!)
+        foWeb = initWebView(this!!.foWeb!!)
         nextBt!!.setOnClickListener(this)
         webView!!.loadUrl(baseUrl+sidList.get(0))
+        index++
     }
     fun initWebView(myWebView: WebView): WebView {
         val w = myWebView.getSettings()
+        w.setAppCacheEnabled(true);
+        w.setDatabaseEnabled(true);
+        w.setDomStorageEnabled(true);
+        w.setCacheMode(WebSettings.LOAD_DEFAULT);
         myWebView.webChromeClient = WebChromeClient()
         w.setPluginState(WebSettings.PluginState.ON)
         w.javaScriptEnabled = true
@@ -58,10 +66,13 @@ class ShowGameFragment : BaseFragment(), View.OnClickListener {
         }
     }
     fun showNext(){
+
+        webView!!.loadUrl(baseUrl+sidList.get(index))
+        if(index < 9)
+        foWeb!!.loadUrl(baseUrl+sidList.get(index+1))
         index++
         if (index == 10){
             index = 0
         }
-        webView!!.loadUrl(baseUrl+sidList.get(index))
     }
 }

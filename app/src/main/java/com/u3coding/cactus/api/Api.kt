@@ -4,8 +4,7 @@ import com.facebook.stetho.okhttp3.StethoInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.OkHttpClient
-
-
+import java.util.concurrent.TimeUnit
 
 
 /**
@@ -13,10 +12,13 @@ import okhttp3.OkHttpClient
  */
 class Api{
     var okHttpClient = OkHttpClient.Builder()
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
             .addNetworkInterceptor(StethoInterceptor())
             .build()
     var retrofit = Retrofit.Builder()
-            .baseUrl("http://45.76.194.215/")
+            .baseUrl("http://api.u3coding.com/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

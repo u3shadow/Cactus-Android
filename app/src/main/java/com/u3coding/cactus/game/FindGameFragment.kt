@@ -24,6 +24,7 @@ import retrofit2.Response
  */
 class FindGameFragment : BaseFragment(),View.OnClickListener {
     private var webView: WebView?=null
+    private var foWeb: WebView?=null
     private val baseUrl:String = "http://store.steampowered.com/app/"
     private var nextBt: Button? = null
     private var ratBar: RatingBar?=null
@@ -48,6 +49,7 @@ class FindGameFragment : BaseFragment(),View.OnClickListener {
     }
     override fun initView(view:View) {
         webView = view.findViewById(R.id.web_wv)
+        foWeb = view.findViewById(R.id.fore_wv)
         nextBt = view.findViewById(R.id.next_bt)
         finishBt = view.findViewById(R.id.finish_bt)
         ratBar = view.findViewById(R.id.rating_bar)
@@ -58,11 +60,18 @@ class FindGameFragment : BaseFragment(),View.OnClickListener {
 
     override fun initLis() {
         webView = initWebView(this!!.webView!!)
+        foWeb = initWebView(this!!.foWeb!!)
         nextBt!!.setOnClickListener(this)
         webView!!.loadUrl(baseUrl+sidList.get(0))
+        foWeb!!.loadUrl(baseUrl+sidList.get(1))
+        index++
     }
         private fun initWebView(myWebView:WebView): WebView {
         val w = myWebView.getSettings()
+        w.setAppCacheEnabled(true);
+        w.setDatabaseEnabled(true);
+        w.setDomStorageEnabled(true);//开启DOM缓存，关闭的话H5自身的一些操作是无效的
+        w.setCacheMode(WebSettings.LOAD_DEFAULT);
         myWebView.webChromeClient = WebChromeClient()
         w.setPluginState(WebSettings.PluginState.ON)
         w.javaScriptEnabled = true
@@ -78,12 +87,16 @@ class FindGameFragment : BaseFragment(),View.OnClickListener {
     fun showNext(score:Float){
         var start = score.toInt()
         rateMap.put(idList.get(index!!).toString(),start as Int)
+        ratBar!!.rating = 5.toFloat()
+
+        webView!!.loadUrl(baseUrl+sidList.get(index))
+        if(index < 9)
+        foWeb!!.loadUrl(baseUrl+sidList.get(index+1))
         index++
-        if (index == 9){
+        if (index == 10){
             turnToFinish()
             index = 0
         }
-        webView!!.loadUrl(baseUrl+sidList.get(index))
     }
 
     private fun turnToFinish() {

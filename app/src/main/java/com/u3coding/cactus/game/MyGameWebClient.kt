@@ -17,8 +17,11 @@ import com.u3coding.cactus.R
 class MyGameWebClient(var activity:Activity):WebViewClient(){
     private var url:String? = null
     override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-        if(url?.contains("agecheck")!!||url?.contains(this.url!!)!!)
-        view!!.loadUrl(url)
+        if(url?.contains("agecheck")!!||url?.contains(this.url!!)!!) {
+            view!!.loadUrl(url)
+            return true
+        }
+        else
         return true
     }
 

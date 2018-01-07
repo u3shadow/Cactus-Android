@@ -1,5 +1,6 @@
 package com.u3coding.cactus.game
 
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,7 +28,7 @@ class ShowGameFragment : BaseFragment(), View.OnClickListener {
    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
        getActivity().setTitle(getResources().getString(R.string.ResultGame))
        var view =  inflater.inflate(R.layout.showgame_fragment, null)
-       pref = activity.getSharedPreferences("login",1)
+       pref = activity.getSharedPreferences("login",MODE_PRIVATE)
        var gson:Gson = Gson()
        sidList = gson.fromJson(pref!!.getString("sid","-1"),ArrayList<Int>()::class.java)
        initView(view)

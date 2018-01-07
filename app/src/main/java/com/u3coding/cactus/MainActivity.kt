@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         navigationView.setCheckedItem(1)
-        pref = getSharedPreferences("login",1)
+        pref = getSharedPreferences("login",MODE_PRIVATE)
         initFragment()
     }
 

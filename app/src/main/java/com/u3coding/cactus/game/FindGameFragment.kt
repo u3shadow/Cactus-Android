@@ -1,5 +1,6 @@
 package com.u3coding.cactus.game
 
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.ViewGroup
@@ -42,7 +43,7 @@ class FindGameFragment : BaseFragment(),View.OnClickListener {
        getActivity().setTitle(getResources().getString(R.string.findgame))
        var view =  inflater.inflate(R.layout.findgame_fragment, null)
        index = 0
-       pref = activity.getSharedPreferences("login",1)
+       pref = activity.getSharedPreferences("login",MODE_PRIVATE)
        initView(view)
        getGameApi()
        return view

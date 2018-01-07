@@ -27,7 +27,7 @@ class LoginActivity: BaseActivity(), View.OnClickListener{
         super.onCreate(savedInstanceState)
         this.window.statusBarColor = resources.getColor(R.color.holo_blue_dark)
         setContentView(R.layout.login_activity)
-        pref = getSharedPreferences("login",1)
+        pref = getSharedPreferences("login",MODE_PRIVATE)
         if(!pref?.getString("userid","-1").equals("-1")){
             jumpToMain()
             finish()
